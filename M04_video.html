@@ -5,15 +5,21 @@
     <title>DAW2</title>
     <meta charset="utf-8" />
     <meta name="author" content="sergi.grau@fje.edu" />
-    <link rel="stylesheet" type="text/css" href="css/estils.css">
-    <script type="text/javascript" src="js/M04_video.js"></script>
+    <script type="text/javascript" src="M04_video.js"></script>
 </head>
-
+<!--
+https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4
+-->
 <body>
     <h1>Video API</h1>
-    <video id="movies" autoplay oncanplay="iniciVideo()" onended="parar()" autobuffer="true" width="400px" height="300px">
-  		<source src="media/big_buck_bunny.ogv" type='video/ogg; codecs="theora, vorbis"'>
+    <video id="movies" autoplay autobuffer="true" width="400px" height="300px">
+
+  		<source src="BigBuckBunny_320x180.mp4">
+          Your browser does not support the video tag.
+
   	</video>
+    <button onclick="iniciVideo()">inici</button>
+    <button onclick="parar()">parar</button>
     <canvas id="timeline" width="400px" height="300px">
 </body>
 
