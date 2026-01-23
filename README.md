@@ -23,4 +23,3 @@ Files and short descriptions:
 - [M12_moduls.html](M12_moduls.html) — ES modules example with module imports and usage.
 - [M13_Firebase.html](M13_Firebase.html) — Firebase Firestore demo for storing and querying documents.
 
-If you want, I can run a quick lint, add a minimal index page, or commit these README changes.
