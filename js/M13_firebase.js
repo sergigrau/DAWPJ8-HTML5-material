@@ -14,7 +14,7 @@
  * Desenvolupament en entorn client. Escola del clot
  */
 
-var firebaseConfig = {
+const firebaseConfig = {
     apiKey: "",
     authDomain: "daw21-2f51e.firebaseapp.com",
     projectId: "daw21-2f51e",
@@ -27,7 +27,7 @@ firebase.initializeApp(firebaseConfig);
 let db = firebase.firestore();
 
 
-var emmagatzematge = {
+const emmagatzematge = {
     taula: document.getElementById('taula'),
     desar: function () {
         /* Aquesta és una opció que genera un ID propi
@@ -60,7 +60,7 @@ var emmagatzematge = {
         
         db.collection("usuaris").get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
-                var fila = taula.insertRow(0);
+                const fila = taula.insertRow(0);
                 fila.insertCell(0).innerHTML = doc.id;
                 fila.insertCell(1).innerHTML = doc.data().nota;
             });
@@ -100,7 +100,7 @@ var emmagatzematge = {
         get().then((querySnapshot) => {
             querySnapshot.forEach((doc) => {
                 console.log(doc.id);
-                var fila = taula.insertRow(0);
+                const fila = taula.insertRow(0);
                 fila.insertCell(0).innerHTML = doc.id;
                 fila.insertCell(1).innerHTML = doc.data().nota;
             });

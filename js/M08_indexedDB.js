@@ -1,14 +1,14 @@
 /*
  * programa que mostra com es pot treballar amb l'API indexedDB
  * @author sergi.grau@fje.edu
- * @version 1.0
+ * @version 2.0
  * date 15.12.2016
  * format del document UTF-8
  *
  * CHANGELOG
  * 15.12.2016
  * - programa que mostra com es pot treballar amb l'API indexedDB
- *
+  * 23.01.2026 actualització codi bones pràctiques
  * NOTES
  * ORIGEN
  * Desenvolupament en entorn client. Escola del clot
@@ -35,14 +35,14 @@ window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || 
 window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
 
 //la petició d'obertura no crea la DB, retorna de manera asíncrona un IDBOpenDBRequest, amb un objecte exit o error.
-var peticioObertura = window.indexedDB.open("DAW2", DB_VERSION);
-var db;
+const peticioObertura = window.indexedDB.open("DAW2", DB_VERSION);
+let db = null;
 
-var emmagatzematge = {
+const emmagatzematge = {
     
     desar: function () {
-        var magatzemObjsAlumnes = db.transaction("alumnes", "readwrite").objectStore("alumnes");
-        var alumne = {
+        const magatzemObjsAlumnes = db.transaction("alumnes", "readwrite").objectStore("alumnes");
+        const alumne = {
             'nom': document.getElementById('nom').value, 'nota': document.getElementById('nota').value
         };
 
@@ -53,9 +53,9 @@ var emmagatzematge = {
     },
     mostrar: function (magatzemObjsAlumnes) {
         magatzemObjsAlumnes.openCursor().onsuccess = function (event) {
-            var cursor = event.target.result;
+            const cursor = event.target.result;
             if (cursor) {
-                var fila = taula.insertRow(0);
+                const fila = taula.insertRow(0);
                 fila.insertCell(0).innerHTML = cursor.key;
                 fila.insertCell(1).innerHTML = cursor.value.nota;
                 cursor.continue();
@@ -69,7 +69,7 @@ var emmagatzematge = {
         }
     },
     esborrarItem: function () {
-        magatzemObjsAlumnes = db.transaction("alumnes", "readwrite").objectStore("alumnes");
+        const magatzemObjsAlumnes = db.transaction("alumnes", "readwrite").objectStore("alumnes");
         magatzemObjsAlumnes.delete(document.getElementById('nom').value);
         emmagatzematge.esborrarTaula();
         emmagatzematge.mostrar(magatzemObjsAlumnes);
@@ -89,7 +89,7 @@ peticioObertura.onsuccess = function (event) {
     db = event.target.result;
 };
 peticioObertura.onupgradeneeded = function (event) {
-    var db = event.target.result;
+    const db = event.target.result;
     try {
         db.deleteObjectStore("clients");
         db.deleteObjectStore("noms");
@@ -101,22 +101,22 @@ peticioObertura.onupgradeneeded = function (event) {
     }
     // ObjectStore conté la informació sobre els nostres clients. El codi
     // "SSN" es la ruta de la clau perquè es garanteix que sigui única
-    var magatzemObjsClients = db.createObjectStore("clients", {
+    const magatzemObjsClients = db.createObjectStore("clients", {
         keyPath: "ssn"
     });
 
     // un altre magatzem amb autoIncrement com a key generator
-    var magatzemObjsNoms = db.createObjectStore("noms", {
+    const magatzemObjsNoms = db.createObjectStore("noms", {
         autoIncrement: true
     });
 
     //  magatzem amb autoIncrement com a key generator per a les notes dels alumnes
-    var magatzemObjsAlumnes = db.createObjectStore("alumnes", {
+    const magatzemObjsAlumnes = db.createObjectStore("alumnes", {
         keyPath: "nom"
     });
 
-    for (var i in dadesClients) {
-        magatzemObjsNoms.add(dadesClients[i].nom);
+    for (const client of dadesClients) {
+        magatzemObjsNoms.add(client.nom);
     }
 
     // Crear un índex per buscar clients pel seu nom. Podem tenir duplicats
@@ -133,24 +133,24 @@ peticioObertura.onupgradeneeded = function (event) {
 
     // Utilitzeu la transacció OnComplete per assegurar-se que la creació és ObjectStore
     // Acabat abans d'afegir dades en ell.
-    magatzemObjsClients.transaction.oncomplete = function (event) {
+        magatzemObjsClients.transaction.oncomplete = function (event) {
         // Emmagatzemar els valors de la magatzemObjsClients acabat de crear.
-        var magatzemObjsClients = db.transaction("clients", "readwrite").objectStore("clients");
-        for (var i in dadesClients) {
-            console.log(dadesClients[i]);
-            var peticio = magatzemObjsClients.add(dadesClients[i]);
+        const magatzemObjsClients = db.transaction("clients", "readwrite").objectStore("clients");
+        for (const client of dadesClients) {
+            console.log(client);
+            const peticioAdd = magatzemObjsClients.add(client);
         }
 
-        var peticio = magatzemObjsClients.get("123");
-        peticio.onerror = function (event) {
+        const peticioGet = magatzemObjsClients.get("123");
+        peticioGet.onerror = function (event) {
 
         };
-        peticio.onsuccess = function (event) {
-            console.log("client " + peticio.result.nom);
+        peticioGet.onsuccess = function (event) {
+            console.log("client " + peticioGet.result.nom);
         };
 
         magatzemObjsClients.openCursor().onsuccess = function (event) {
-            var cursor = event.target.result;
+            const cursor = event.target.result;
             if (cursor) {
                 console.log(cursor.key + " es " + cursor.value.nom);
                 cursor.continue();

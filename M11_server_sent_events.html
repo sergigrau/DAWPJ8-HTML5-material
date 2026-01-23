@@ -5,11 +5,14 @@
 <head>
     <title>DAW2</title>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="sergi.grau@fje.edu" />
     <link rel="stylesheet" type="text/css" href="css/estils.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#main-content">Vés al contingut</a>
+    <main id="main-content">
     <h1> Server Sent Events API </h1>
      <script>
     var source = new EventSource('/events');
@@ -17,6 +20,7 @@
       document.body.innerHTML += e.data + '<br>';
     };
   </script>
+    </main>
 </body>
 
 </html>

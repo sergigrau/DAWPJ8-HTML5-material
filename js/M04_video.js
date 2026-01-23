@@ -9,30 +9,30 @@
  * CHANGELOG
  * 19.01.2017
  * - programa que mostra com es pot treballar amb l'API video
- *
+* 23.01.2026 actualització codi bones pràctiques
  * NOTES
  * ORIGEN
  * Desenvolupament en entorn client. Escola del clot
  */
 
- var interval = 5000;
+ const interval = 5000;
 
   // Mida de la instantània
-  var ampladaInstantania = 100;
-  var alturaInstantania = 75;
+  const ampladaInstantania = 100;
+  const alturaInstantania = 75;
 
   // files i columnes del timeline
-  var nombreFiles = 4;
-  var nombreColumnes = 4;
-  var graella = nombreFiles * nombreColumnes;
+  const nombreFiles = 4;
+  const nombreColumnes = 4;
+  const graella = nombreFiles * nombreColumnes;
 
   // comptador instantania
-  var comptadorInstantania = 0;
+  let comptadorInstantania = 0;
 
   // to cancel the timer at end of play
-  var intervalId;
+  let intervalId;
 
-  var videoIniciat = false;
+  let videoIniciat = false;
 
   function iniciVideo() {
 
@@ -46,17 +46,15 @@
     intervalId = setInterval(actualitzarCanvas, interval);
 
     // manegador per anar al punt del video en funció de la zona del canvas polsada
-    var timeline = document.getElementById("timeline");
+    const timeline = document.getElementById("timeline");
     timeline.onclick = function(evt) {
-      var offX = evt.layerX - timeline.offsetLeft;
-      var offY = evt.layerY - timeline.offsetTop;
+      const offX = evt.layerX - timeline.offsetLeft;
+      const offY = evt.layerY - timeline.offsetTop;
 
       // calcula la posició de la graella que s'ha polsat, index zero
-      var posicio = Math.floor(offY / alturaInstantania) * frameRows;
-      posicio += Math.floor(offX / ampladaInstantania);
-
-      // calcula el temps de la instantania seleccionada
-      var instantaniaSeleccionada = (((Math.floor(comptadorInstantania / graella)) * graella) + posicio);
+      const posicio = Math.floor(offY / alturaInstantania) * frameRows;
+      const posicioX = Math.floor(offX / ampladaInstantania);
+      let instantaniaSeleccionada = (((Math.floor(comptadorInstantania / graella)) * graella) + posicio + posicioX);
 
       // arrodoniment en funció d'on es polsa
       if(posicio > (comptadorInstantania % 16))
@@ -67,7 +65,7 @@
         return;
 
       // cerquem el tros de video que correspon
-      var video = document.getElementById("movies");
+      const video = document.getElementById("movies");
       video.currentTime = instantaniaSeleccionada * tempsActualitzacio / 1000;
       comptadorInstantania = instantaniaSeleccionada;
     }
@@ -75,16 +73,16 @@
 
   // dibuixa una instantània en el canvas
   function actualitzarCanvas() {
-    var video = document.getElementById("movies");
-    var timeline = document.getElementById("timeline");
+    const video = document.getElementById("movies");
+    const timeline = document.getElementById("timeline");
 
-    var ctx = timeline.getContext("2d");
+    const ctx = timeline.getContext("2d");
 
     // calcula la posció actual basat en el comptador d'instantanies
     // i dibuixa la imatge a partir del video
-    var posicioInstantania = comptadorInstantania % graella;
-    var x = (posicioInstantania % nombreColumnes) * ampladaInstantania;
-    var y = (Math.floor(posicioInstantania / nombreFiles)) * alturaInstantania;
+    const posicioInstantania = comptadorInstantania % graella;
+    const x = (posicioInstantania % nombreColumnes) * ampladaInstantania;
+    const y = (Math.floor(posicioInstantania / nombreFiles)) * alturaInstantania;
     ctx.drawImage(video, 0, 0, 400, 300, x, y, ampladaInstantania, alturaInstantania);
     comptadorInstantania++;
   }

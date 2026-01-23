@@ -1,14 +1,13 @@
 /*
  * programa que mostra com es pot treballar amb l'API canvas amb animacions
- * original mdn
- * @version 1.0
+ * @version 2.0
  * date 19.10.2020
  * format del document UTF-8
  *
  * CHANGELOG
  * 19.10.2020
  * - programa que mostra com es pot treballar amb l'API canvas amb animacions
- *
+  * 23.01.2026 actualització codi bones pràctiques
  * NOTES
  * ORIGEN
  * Desenvolupament en entorn client. Escola del clot

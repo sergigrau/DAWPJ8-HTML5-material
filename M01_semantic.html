@@ -2,53 +2,59 @@
 <html lang="ca">
 
 <head>
-    <title>DAW2</title>
     <meta charset="utf-8" />
+    <title>DAW2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="sergi.grau@fje.edu" />
     <link rel="stylesheet" type="text/css" href="css/estils.css">
 </head>
 
+
 <body>
+    <a class="skip-link" href="#main-content">Vés al contingut</a>
     <header>
         <h1>HTML5 Semàntic</h1>
-        <h4>Subtitle</h4>
+        <h2>Subtitle</h2>
     </header>
 
     <div id="container">
-        <nav>
-            <h3>Nav</h3>
-            <a href="">Link 1</a>
-            <a href="">Link 2</a>
-            <a href="">Link 3</a>
+        <nav aria-label="Principal">
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
         </nav>
-        <section>
-            <article>
-                <header>
-                    <h1>Article Header</h1>
-                </header>
-                <p>Lorem ipsum dolor HTML5 nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna.</p>
-                <p>Per inceptos himenaeos. Quisque feugiat, justo at vehicula pellentesque, turpis lorem dictum nunc.</p>
-                <footer>
-                    <h2>Article Footer</h2>
-                </footer>
-            </article>
-            <article>
-                <header>
-                    <h1>Article Header</h1>
-                </header>
-                <p>HTML5: "Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio</p>
-                <footer>
-                    <h2>Article Footer</h2>
-                </footer>
-            </article>
-        </section>
+        <main id="main-content">
+            <section>
+                <article>
+                    <header>
+                        <h2>Article Header</h2>
+                    </header>
+                    <p>Lorem ipsum dolor HTML5 nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna.</p>
+                    <p>Per inceptos himenaeos. Quisque feugiat, justo at vehicula pellentesque, turpis lorem dictum nunc.</p>
+                    <footer>
+                        <p>Article Footer</p>
+                    </footer>
+                </article>
+                <article>
+                    <header>
+                        <h2>Article Header</h2>
+                    </header>
+                    <p>HTML5: "Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio</p>
+                    <footer>
+                        <p>Article Footer</p>
+                    </footer>
+                </article>
+            </section>
+        </main>
 
         <aside>
             <h3>Aside</h3>
             <p>HTML5: "Lorem ipsum dolor nunc aut nunquam sit amet, consectetur adipiscing elit. Vivamus at est eros, vel fringilla urna. Pellentesque odio rhoncus</p>
         </aside>
         <footer>
-            <h2>Footer</h2>
+            <p>Footer</p>
         </footer>
     </div>
 </body>

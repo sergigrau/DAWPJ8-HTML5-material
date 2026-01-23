@@ -1,14 +1,14 @@
 /*
  * programa que mostra com es pot treballar amb l'API canvas
  * @author sergi.grau@fje.edu
- * @version 1.0
+ * @version 2.0
  * date 19.01.2017
  * format del document UTF-8
  *
  * CHANGELOG
  * 26.10.2017
  * - programa que mostra com es pot treballar amb l'API canvas
- *
+ * 23.01.2026 actualització codi bones pràctiques
  * NOTES
  * ORIGEN
  * Desenvolupament en entorn client. Escola del clot
@@ -16,7 +16,7 @@
 
  window.onload = function(){
 
-    var gespa = new Image();
+    const gespa = new Image();
     gespa.src = "../imatges/imgres.jpeg";
     gespa.onload = function() {
         dibuixar();
@@ -48,7 +48,7 @@
     }
     
     function dibuixarTronc(context) {
-        var gradientTronc = context.createLinearGradient(-5, -50, 5, -50);
+        const gradientTronc = context.createLinearGradient(-5, -50, 5, -50);
         gradientTronc.addColorStop(0, '#663300');
         gradientTronc.addColorStop(0.4, '#996600');
         gradientTronc.addColorStop(1, '#552200');
@@ -67,7 +67,7 @@
     }
     
     function dibuixarOmbra(context) {
-        var ombra = context.createLinearGradient(0, -50, 0, 0);
+        const ombra = context.createLinearGradient(0, -50, 0, 0);
         ombra.addColorStop(0, 'rgba(0, 0, 0, 0.5)');
         ombra.addColorStop(0.2, 'rgba(0, 0, 0, 0.0)');
         context.fillStyle = ombra;
@@ -75,9 +75,9 @@
     }
     
     function dibuixar() {
-        var canvas = document.getElementById('area');
+        const canvas = document.getElementById('area');
         if(canvas.getContext) {
-            var context = canvas.getContext('2d');
+            const context = canvas.getContext('2d');
     
             //context.drawImage(gespa, 0, 0, 300, 300);
             context.fillStyle = context.createPattern(gespa, 'repeat');

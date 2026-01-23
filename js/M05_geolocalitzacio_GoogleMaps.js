@@ -14,18 +14,18 @@
  * Desenvolupament en entorn client. Escola del clot
  */
 
-var trackerId = 0;
-var geocoder;
-var usuari = {};
-var mapa = {};
+let trackerId = 0;
+let geocoder;
+let usuari = {};
+let mapa = {};
 
 function iniciar() {
   geocoder = new google.maps.Geocoder();
-  if (navigator.geolocation) {
-    var geolocalitzacio = navigator.geolocation;
+    if (navigator.geolocation) {
+    const geolocalitzacio = navigator.geolocation;
     geolocalitzacio.getCurrentPosition(function (pos) {
-      var latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-      var opts = {
+      const latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+      const opts = {
         zoom: 12,
         center: latLng,
         mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -42,7 +42,7 @@ function iniciar() {
 }
 
 function mostrarLocalitzacio(pos) {
-  var latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+  const latLng = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
   if (geocoder) {
     geocoder.geocode({
       'latLng': latLng
