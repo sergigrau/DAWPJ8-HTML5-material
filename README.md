@@ -17,7 +17,7 @@ Files and short descriptions:
 - [M06_drag_and_drop.html](M06_drag_and_drop.html) — Drag-and-drop demo showing draggable images and drop targets.
 - [M07_webstorage.html](M07_webstorage.html) — localStorage example to save and list simple key/value items.
 - [M08_indexedDB.html](M08_indexedDB.html) — IndexedDB example demonstrating object stores and cursors.
-- [M09_AppCache.html](M09_AppCache.html) — AppCache manifest example (legacy offline caching demo).
+- [M09_ServiceWorker.html](M09_ServiceWorker.html) — AppCache demo migrat a Service Worker; mostra registre, Cache API i comportament offline.
 - [M10_webworkers.html](M10_webworkers.html) — Web Workers example processing image data in background threads.
 - [M11_server_sent_events.html](M11_server_sent_events.html) — Server-Sent Events (SSE) example listening to a /events endpoint.
 - [M12_moduls.html](M12_moduls.html) — ES modules example with module imports and usage.

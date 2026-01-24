@@ -11,7 +11,7 @@ const NOM_CACHE = 'daw2-cache-v1';
 // Recursos bàsics que es pre-cachen a l'instal·lació
 const RECURSOS_PRECACHE = [
   '/',
-  '/M09_AppCache.html',
+  '/M09_ServiceWorker.html',
   '/M01_semantic.html',
   '/M03_audio.html',
   '/M05_geolocalitzacio.html',
@@ -69,7 +69,7 @@ self.addEventListener('fetch', event => {
         return networkResp;
       }).catch(() => {
         // fallback senzill: retornar la pàgina principal si està en cache
-        return caches.match('/M09_AppCache.html');
+        return caches.match('/M09_ServiceWorker.html');
       });
     })
   );
