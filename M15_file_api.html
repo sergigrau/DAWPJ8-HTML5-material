@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>M15 - File API (Demo)</title>
+  <link rel="stylesheet" href="css/estils.css">
+  <style>
+    #dropZone{border:2px dashed #666;padding:20px;text-align:center;margin:1rem 0;background:#fafafa}
+    #dropZone.dragover{background:#eef}
+    img.preview{max-width:200px;display:block;margin-top:8px}
+    pre{text-align:left;white-space:pre-wrap;background:#f7f7f7;padding:8px;border-radius:4px}
+    .meta{font-size:0.9rem;color:#333}
+  </style>
+</head>
+<body>
+  <main>
+    <h1> File API</h1>
+    <p>Selecciona o arrossega fitxers per veure informació, previsualitzacions i contingut.</p>
+
+    <label>
+      Fitxers: <input id="fitxerElem" type="file" multiple>
+    </label>
+
+    <div id="zonaArrossegament">Arrossega fitxers aquí</div>
+
+    <section id="results">
+      <h2>Fitxers</h2>
+      <ul id="llistaFitxers"></ul>
+    </section>
+  </main>
+
+  <script src="js/M15_file_api.js"></script>
+</body>
+</html>

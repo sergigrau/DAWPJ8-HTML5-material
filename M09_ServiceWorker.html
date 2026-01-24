@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ca" manifest="daw2.appcache">
+<html lang="ca">
 
 <head>
     <title>DAW2</title>
@@ -16,6 +16,15 @@
         <a href="./M03_audio.html">audio</a>
         <a href="./M05_geolocalitzacio.html">geolocalització</a> -> semantic si offline
     </main>
+        <script>
+            if('serviceWorker' in navigator){
+                navigator.serviceWorker.register('service-worker.js')
+                .then(reg => console.log('Service Worker registrat:', reg.scope))
+                .catch(err => console.warn('Error registrant Service Worker:', err));
+            } else {
+                console.warn('Service Workers no suportat en aquest navegador.');
+            }
+        </script>
 </body>
 
 </html>

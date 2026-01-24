@@ -22,4 +22,6 @@ Files and short descriptions:
 - [M11_server_sent_events.html](M11_server_sent_events.html) — Server-Sent Events (SSE) example listening to a /events endpoint.
 - [M12_moduls.html](M12_moduls.html) — ES modules example with module imports and usage.
 - [M13_Firebase.html](M13_Firebase.html) — Firebase Firestore demo for storing and querying documents.
+- [M14_history.html](M14_history.html) — History API demo (pushState, replaceState, navigation).
+- [M15_file_api.html](M15_file_api.html) — File API demo: select/drag, preview, read and download files.
 

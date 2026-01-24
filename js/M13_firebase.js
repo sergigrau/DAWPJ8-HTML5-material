@@ -18,9 +18,9 @@ const firebaseConfig = {
     apiKey: "",
     authDomain: "daw21-2f51e.firebaseapp.com",
     projectId: "daw21-2f51e",
-    storageBucket: "daw21-2f51e.appspot.com",
-    messagingSenderId: "39729045724",
-    appId: "1:39729045724:web:ec414c3e11fd64f3195419"
+    storageBucket: "<completa amb el teu id>.appspot.com",
+    messagingSenderId: "<completa amb el teu id>",
+    appId: "<completa amb el teu id>"
 };
 // inicialitzar Firebase
 firebase.initializeApp(firebaseConfig);
