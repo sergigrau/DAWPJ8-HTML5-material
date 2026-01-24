@@ -2,40 +2,36 @@
 <html lang="ca">
 
 <head>
-    <title>DAW2</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="sergi.grau@fje.edu" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script type="text/javascript" src="js/M03_media.js"></script>
+  <title>DAW2</title>
+  <meta charset="utf-8" />
+  <meta name="author" content="sergi.grau@fje.edu" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script type="text/javascript" src="js/M03_media.js"></script>
+      <link rel="stylesheet" type="text/css" href="css/estils.css">
+
 </head>
-<!--
-https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4
--->
+
 <body>
-  <a class="skip-link" href="#main-content">Vés al contingut</a>
-  <main id="main-content">
-  <h1>Video API</h1>
+  <main>
+    <h1>Video API</h1>
 
-    <video id="media"  autobuffer="true" width="400px" height="300px">
+    <video id="media" autobuffer="true" width="400px" height="300px">
+      <source src="https://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4">
+    </video>
 
-  		<source src="media/BigBuckBunny_320x180.mp4">
-          Your browser does not support the video tag.
-
-  	</video>
-    
     <button id="estat">
-			Reproducció
-		</button>
+      Reproducció
+    </button>
     <button id="inici" onclick="anarInici()">
-			Inici
-		</button>
+      Inici
+    </button>
     <button id="final" onclick="anarFinal()">
-			Final
-		</button>
+      Final
+    </button>
 
     <label id="temps">0</label>
 
-    </main>
-  </body>
+  </main>
+</body>
 
 </html>
